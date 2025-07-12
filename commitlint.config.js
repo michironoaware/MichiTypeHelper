@@ -13,5 +13,7 @@ export default {
         "subject-case": [2, "never", ["sentence-case"]],
         "subject-empty": [2, "never"],
         "header-max-length": [1, "always", 100],
+        "body-max-line-length": [0, "always", 100],
+        "footer-max-line-length": [0, "always", 100],
     },
 };
