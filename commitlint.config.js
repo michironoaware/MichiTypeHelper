@@ -9,7 +9,7 @@ export default {
         "type-case": [2, "always", "lower-case"],
         "type-empty": [2, "never"],
         "scope-case": [2, "always", "lower-case"],
-        "scope-empty": [2, "always"],
+        "scope-empty": [0, "always"],
         "subject-case": [2, "never", ["sentence-case"]],
         "subject-empty": [2, "never"],
         "header-max-length": [1, "always", 100],
