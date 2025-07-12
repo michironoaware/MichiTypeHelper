@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/michironoaware/michi-typehelper/compare/v1.0.2...v1.0.3) (2025-07-12)
+
+
+### Bug Fixes
+
+* fix package export references ([54a0585](https://github.com/michironoaware/michi-typehelper/commit/54a05853a9ff72e52f33930fa51c1852bf5fc588))
+
 ## [1.0.2](https://github.com/michironoaware/MichiTypeHelper/compare/v1.0.1...v1.0.2) (2025-07-12)
 
 
