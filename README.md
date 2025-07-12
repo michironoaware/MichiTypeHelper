@@ -1,4 +1,4 @@
-# TypeHelper
+# michi-typehelper
 
 Lightweight runtime type checking for JavaScript with full TypeScript
 support and useful type inference for safer, clearer runtime code.
@@ -22,7 +22,7 @@ npm install michi-typehelper
 | Method Name                                                                     | Description                                                                | Parameters                                                          | Returns / Throws                                                           |
 | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------- |
 | `isNullable<T>(obj: T)`                                                         | Checks if a value is `null` or `undefined`.                                | `obj: T` — The value to check.                                      | `true` if `obj` is `null` or `undefined`, otherwise `false`.               |
-| `isType<T extends TypeResolvable>(obj: unknown, type: T)`                       | Checks whether a value is of the specified type.                           | `obj: unknown` — Value to check. `type: T` — Type to check against. | `true` if `obj` matches the type, otherwise `false`.                       |
+| `isType<T>(obj: unknown, type: T)`                                              | Checks whether a value is of the specified type.                           | `obj: unknown` — Value to check. `type: T` — Type to check against. | `true` if `obj` matches the type, otherwise `false`.                       |
 | `isAnyType<T1, T2, T3>(obj: unknown, type1: T1, type2: T2, type3?: T3)`         | Checks if value matches _any_ of the specified types.                      | `obj: unknown` `type1: T1`, `type2: T2`, `type3?: T3`               | `true` if matches at least one type, otherwise `false`.                    |
 | `isTypeArray<T>(object: unknown, type: T)`                                      | Checks if value is an array where every item matches the specified type.   | `object: unknown` `type: T`                                         | `true` if array of specified type, otherwise `false`.                      |
 | `throwIf(condition: boolean, message: string)`                                  | Throws a `TypeError` if the condition is `true`.                           | `condition: boolean` `message: string`                              | Throws `TypeError` if `condition` is `true`.                               |
