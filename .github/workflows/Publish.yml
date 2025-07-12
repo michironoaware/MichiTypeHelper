@@ -35,6 +35,9 @@ jobs:
             - name: Run tests
               run: npm test
 
+            - name: Verify the integrity of provenance attestations and registry signatures for installed dependencies
+              run: npm audit signatures
+
             - name: Build, create release, and publish to npm
               env:
                   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
