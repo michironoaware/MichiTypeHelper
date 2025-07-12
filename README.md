@@ -12,7 +12,7 @@ support and useful type inference for safer, clearer runtime code.
 
 ## Installation
 ```shell
-npm install typehelper
+npm install michi-typehelper
 ```
 
 ## Usage
