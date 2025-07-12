@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/michironoaware/MichiTypeHelper/compare/v1.0.0...v1.0.1) (2025-07-12)
+
+
+### Bug Fixes
+
+* remove unused package export ([565a386](https://github.com/michironoaware/MichiTypeHelper/commit/565a3861c444b7046d6f791a1b463c10d825f49f))
+
 # 1.0.0 (2025-07-12)
 
 ### Features
