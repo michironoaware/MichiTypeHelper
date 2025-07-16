@@ -62,11 +62,7 @@ export namespace TypeHelper {
 		type2: T2,
 		type3?: T3,
 	): obj is ResolvedType<T1> | ResolvedType<T2> | ResolvedType<T3> {
-		return (
-			isType(obj, type1) ||
-			isType(obj, type2) ||
-			(!isNullable(type3) && isType(obj, type3))
-		);
+		return isType(obj, type1) || isType(obj, type2) || (!isNullable(type3) && isType(obj, type3));
 	}
 
 	/**
