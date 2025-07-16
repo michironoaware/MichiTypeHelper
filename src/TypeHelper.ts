@@ -33,7 +33,7 @@ export namespace TypeHelper {
 				// Check if object is either null or undefined for type "nullable"
 				(type === "nullable" && isNullable(obj)) ||
 				// Check if object is iterable for type "iterable"
-				(type === "iterable" && (obj as any)[Symbol.iterator] !== undefined) ||
+				(type === "iterable" && !isNullable((obj as any)[Symbol.iterator])) ||
 				// Check if object is array for type "array"
 				(type === "array" && Array.isArray(obj))
 			);
@@ -62,11 +62,7 @@ export namespace TypeHelper {
 		type2: T2,
 		type3?: T3,
 	): obj is ResolvedType<T1> | ResolvedType<T2> | ResolvedType<T3> {
-		return (
-			TypeHelper.isType(obj, type1) ||
-			TypeHelper.isType(obj, type2) ||
-			(!TypeHelper.isNullable(type3) && TypeHelper.isType(obj, type3))
-		);
+		return isType(obj, type1) || isType(obj, type2) || (!isNullable(type3) && isType(obj, type3));
 	}
 
 	/**
@@ -107,7 +103,7 @@ export namespace TypeHelper {
 	 * @throws {TypeErrorConstructor} If the object is `null` or `undefined`.
 	 */
 	export function throwIfNullable<T>(obj: T): asserts obj is NonNullable<T> {
-		if (TypeHelper.isNullable(obj)) {
+		if (isNullable(obj)) {
 			throw new TypeErrorConstructor("Object is null or undefined.");
 		}
 	}
@@ -118,7 +114,7 @@ export namespace TypeHelper {
 	 * @throws {TypeErrorConstructor} If the object is neither `null` nor `undefined`.
 	 */
 	export function throwIfNotNullable<T>(obj: T): asserts obj is Extract<T, null | undefined> {
-		if (!TypeHelper.isNullable(obj)) {
+		if (!isNullable(obj)) {
 			throw new TypeErrorConstructor("Object is neither null nor undefined.");
 		}
 	}
@@ -144,7 +140,7 @@ export namespace TypeHelper {
 		object: TObject,
 		type: TType,
 	): asserts object is Exclude<TObject, ResolvedType<TType>> {
-		if (TypeHelper.isType(object, type)) {
+		if (isType(object, type)) {
 			throw new TypeErrorConstructor("Object cannot be an instance of the specified type.");
 		}
 	}
@@ -159,7 +155,7 @@ export namespace TypeHelper {
 		object: unknown,
 		type: T,
 	): asserts object is ResolvedType<T> {
-		if (!TypeHelper.isType(object, type)) {
+		if (!isType(object, type)) {
 			throw new TypeErrorConstructor("Object is not an instance of the type expected.");
 		}
 	}
@@ -178,7 +174,7 @@ export namespace TypeHelper {
 		type2: T2,
 		type3?: T3,
 	): asserts obj is ResolvedType<T1> | ResolvedType<T2> | ResolvedType<T3> {
-		if (!TypeHelper.isAnyType(obj, type1, type2, type3)) {
+		if (!isAnyType(obj, type1, type2, type3)) {
 			throw new TypeErrorConstructor("Object is not an instance of the type expected.");
 		}
 	}
@@ -194,7 +190,7 @@ export namespace TypeHelper {
 		obj: unknown,
 		type: T,
 	): asserts obj is ResolvedType<T>[] {
-		if (!TypeHelper.isTypeArray(obj, type)) {
+		if (!isTypeArray(obj, type)) {
 			throw new TypeErrorConstructor("Object is not an array or an item is of an unexpected type.");
 		}
 	}
