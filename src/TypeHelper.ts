@@ -33,7 +33,7 @@ export namespace TypeHelper {
 				// Check if object is either null or undefined for type "nullable"
 				(type === "nullable" && isNullable(obj)) ||
 				// Check if object is iterable for type "iterable"
-				(type === "iterable" && (obj as any)[Symbol.iterator] !== undefined) ||
+				(type === "iterable" && !isNullable((obj as any)[Symbol.iterator])) ||
 				// Check if object is array for type "array"
 				(type === "array" && Array.isArray(obj))
 			);
