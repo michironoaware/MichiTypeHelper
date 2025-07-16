@@ -1,3 +1,10 @@
+## [1.0.4](https://github.com/michironoaware/michi-typehelper/compare/v1.0.3...v1.0.4) (2025-07-16)
+
+
+### Bug Fixes
+
+* consider objects with a null iterator symbol as non-iterable ([f1dc6cf](https://github.com/michironoaware/michi-typehelper/commit/f1dc6cfc67392b8cfceef9c3a11d4e97e0670d81))
+
 ## [1.0.3](https://github.com/michironoaware/michi-typehelper/compare/v1.0.2...v1.0.3) (2025-07-12)
 
 
